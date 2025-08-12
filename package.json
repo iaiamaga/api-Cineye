@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+
   "scripts": {
     "dev": "npx tsx watch src/server.ts"
   },
@@ -13,14 +14,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/iaiamaga/api-Cineye/issues"
   },
   "homepage": "https://github.com/iaiamaga/api-Cineye#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
     "@eslint/json": "^0.13.1",
+    "@types/express": "^5.0.3",
     "@types/node": "^24.2.1",
     "eslint": "^9.33.0",
     "globals": "^16.3.0",
