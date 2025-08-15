@@ -6,12 +6,15 @@ const app = express();
 const prisma = new PrismaClient();
 
 app.get("/cineproductions", async (req, res) => {
-  const cineproductions = await prisma.cineproduction.findMany();
-  res.json(cineproductions);
-})
-
-app.get("/movie", (req, res) => {
-  res.send("Listagem de filmes");
+    const cineproductions = await prisma.cineproduction.findMany({
+        orderBy: { title: 'asc' },
+        include: {
+            genres: true,
+            idioms: true,
+            types: true
+        },
+    });
+    res.json(cineproductions);
 });
 
 app.listen(port, () => {   

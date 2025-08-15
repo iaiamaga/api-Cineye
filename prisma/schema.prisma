@@ -16,8 +16,8 @@ model Cineproduction {
   genre_id     Int?
   directors    String?       @db.VarChar(250)
   type_id      Int?
-  genres       Genre?       @relation(fields: [genre_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_genre")
-  idioms       Idiom?       @relation(fields: [idiom_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_idiom")
+  genres       Genre?        @relation(fields: [genre_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_genre")
+  idioms       Idiom?        @relation(fields: [idiom_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_idiom")
   types        types?        @relation(fields: [type_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_type")
   film_genero  film_genero[]
 
@@ -28,16 +28,15 @@ model film_genero {
   cineproductions_id Int
   genero_id          Int
   cineproductions    Cineproduction @relation(fields: [cineproductions_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_film")
-  genres             Genre         @relation(fields: [genero_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_genero")
+  genres             Genre          @relation(fields: [genero_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_genero")
 
   @@id([cineproductions_id, genero_id], map: "pk_film_genero")
-
   @@map("film_genero")
 }
 
 model Genre {
-  id              Int               @id @default(autoincrement())
-  name            String?           @db.VarChar(100)
+  id              Int              @id @default(autoincrement())
+  name            String?          @db.VarChar(100)
   cineproductions Cineproduction[]
   film_genero     film_genero[]
 
@@ -45,16 +44,16 @@ model Genre {
 }
 
 model Idiom {
-  id              Int               @id @default(autoincrement())
-  name            String?           @db.VarChar(200)
+  id              Int              @id @default(autoincrement())
+  name            String?          @db.VarChar(200)
   cineproductions Cineproduction[]
 
   @@map("idioms")
 }
 
 model types {
-  id              Int               @id @default(autoincrement())
-  name            String?           @db.VarChar(100)
+  id              Int              @id @default(autoincrement())
+  name            String?          @db.VarChar(100)
   cineproductions Cineproduction[]
 
   @@map("types")
