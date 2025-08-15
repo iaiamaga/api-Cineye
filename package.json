@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/iaiamaga/api-Cineye#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "@prisma/client": "^5.0.0",
+    "express": "^5.1.0",
+    "prisma": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
@@ -29,7 +31,6 @@
     "eslint": "^9.33.0",
     "globals": "^16.3.0",
     "jiti": "^2.5.1",
-    "prisma": "^6.14.0",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.39.1"
   }
